@@ -4,7 +4,7 @@
 #define switch2 17
 
 // A variable used to indicate whether the outputs will be connected to LEDs or the oscilloscope
-unsigned char usingLEDs = 1;
+unsigned char usingLEDs = 0;
 
 // Variable declaration for pulse stream parameters
 int widthA;
@@ -67,9 +67,9 @@ void loop()
   if (modifiedMode == 1) {pulseCounterMax = 14; }
   else { pulseCounterMax = 17; }
 
-  Serial.print("\n\ndisablePulseStream = "); Serial.print(disablePulseStream);
-  Serial.print("\nmodifiedMode = "); Serial.print(modifiedMode);
-  Serial.print("\npulseCounterMax = "); Serial.print(pulseCounterMax);
+  //Serial.print("\n\ndisablePulseStream = "); Serial.print(disablePulseStream);
+  //Serial.print("\nmodifiedMode = "); Serial.print(modifiedMode);
+  //Serial.print("\npulseCounterMax = "); Serial.print(pulseCounterMax);
 
   // start the pulse stream only if not disabled by disablePulseStream(switch1)
   if (!disablePulseStream)
@@ -82,11 +82,11 @@ void loop()
     delayMicroseconds(widthB);
     digitalWrite(pulseB, LOW);
 
-    Serial.print("\npulseWidthA = "); 
+    //Serial.print("\npulseWidthA = "); 
     // Loop through all pulses in signal A, length depending on the status of modifiedMode(switch2)
     for (int pulseCounter = 0; pulseCounter < pulseCounterMax; pulseCounter++)
     {
-      Serial.print(widthA); Serial.print("\t");
+      //Serial.print(widthA); Serial.print("\t");
       // Pulse signal A for widthA microseconds followed by a space of spaceA microseconds
       digitalWrite(pulseA, HIGH);
       delayMicroseconds(widthA);
